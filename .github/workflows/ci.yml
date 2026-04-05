@@ -2,8 +2,12 @@ name: QA Automation
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - develop
+      - main
   pull_request:
+    branches:
+      - develop
 
 jobs:
   test:
