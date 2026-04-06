@@ -1,0 +1,125 @@
+{
+  "info": {
+    "_postman_id": "3e9da0dc-3635-4150-8c1e-02c5aad2b8e6",
+    "name": "Ecommerce test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "13355859"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"emilys\", \n  \"password\": \"emilyspass\"\n}"
+
+            },
+            "url": "{{base_url}}/auth/login"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "item": [
+        {
+          "name": "Product list",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/products"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Product List - Limit 5",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/products/?limit=5"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Cart",
+      "item": [
+        {
+          "name": "Cart - Get Cart",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/carts/1"
+          },
+          "response": []
+        },
+        {
+          "name": "Cart - Add item",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key":"Content-Type",
+                "value":"application/json"
+              }
+
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": {
+                "userId": 1,
+                "products": [
+                  {
+                    "id": 168,
+                    "quantity": 4
+                  }
+                ]
+              }
+            },
+            "url": "{{base_url}}/carts/add"
+          },
+          "response": []
+        },
+        {
+          "name": "Cart - Update Quantity",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": "{{base_url}}/carts/1"
+          },
+          "response": []
+        },
+        {
+          "name": "Cart - Remove item",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+             "url": "{{base_url}}/carts/1"
+          },
+          "response": []
+        },
+        {
+          "name": "Cart - Get User Cart",
+          "request": {
+            "method": "GET",
+            "header": [],
+             "url": "{{base_url}}/carts/2"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
